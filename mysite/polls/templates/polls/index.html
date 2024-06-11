@@ -1,0 +1,23 @@
+{% load static %}
+<html>
+  <head>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+    <title>Index Page</title>
+  </head>
+  <body> 
+    <h1 style="color:blue; padding:5px;">Polling App</h1>
+    <div>
+    <ul>
+      {% if latest_question_list %}
+       {% for question in latest_question_list %}
+         <li><h4><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></h4></li>
+        {% endfor %}
+    </ul>
+      {% else %}
+         <p>No polls are available.</p>
+  {% endif %}
+  </div>
+  </body>
+</html>
